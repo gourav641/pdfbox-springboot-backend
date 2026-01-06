@@ -1,5 +1,5 @@
 // Base URL for your Spring Boot application
-const BASE_URL = 'https://docuflow-pdf-operation-app.onrender.com'; // Change this to your server URL
+const BASE_URL = 'https://docuflow-pdf-operation-app.onrender.com; // Change this to your server URL
 
 // Utility function to show status messages
 function showStatus(elementId, message, type) {
@@ -194,6 +194,7 @@ if (document.getElementById('mergeForm')) {
             });
 
             if (!response.ok) {
+            console.log("Error in above block")
                 throw new Error(`Server error: ${response.status}`);
             }
 
