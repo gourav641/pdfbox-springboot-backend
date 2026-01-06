@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create PDF - PDF Master</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">📄 Docuflow</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create.html" class="active">Create</a></li>
+            <li><a href="compress.html">Compress</a></li>
+            <li><a href="merge.html">Merge</a></li>
+            <li><a href="remove.html">Remove Pages</a></li>
+            <li><a href="lock.html">Lock PDF</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="operation-page">
+        <h1 class="page-title">🎨 Create PDF</h1>
+        <p class="page-description">Upload multiple files to create a single PDF document</p>
+
+        <form id="createForm" class="upload-form">
+            <div class="form-group">
+                <label>Select Files</label>
+                <div class="file-input-wrapper">
+                    <label class="file-input-label" for="createFiles">
+                        <span>📁 Click to select files or drag & drop</span>
+                    </label>
+                    <input type="file" id="createFiles" class="file-input" multiple accept="*/*">
+                </div>
+                <div id="createFileList" class="file-list" style="display: none;"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Create PDF</button>
+        </form>
+
+        <div id="createStatus" style="display: none;"></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 Docuflow. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

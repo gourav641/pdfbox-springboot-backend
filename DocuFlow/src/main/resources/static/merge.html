@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge PDFs - PDF Master</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">📄 Docuflow</div>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="create.html">Create</a></li>
+      <li><a href="compress.html">Compress</a></li>
+      <li><a href="merge.html" class="active">Merge</a></li>
+      <li><a href="remove.html">Remove Pages</a></li>
+      <li><a href="lock.html">Lock PDF</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="operation-page">
+    <h1 class="page-title">🔗 Merge PDFs</h1>
+    <p class="page-description">Combine multiple PDF files into one document</p>
+
+    <form id="mergeForm" class="upload-form">
+      <div class="form-group">
+        <label>Select PDF Files (2 or more)</label>
+        <div class="file-input-wrapper">
+          <label class="file-input-label" for="mergeFiles">
+            <span>📁 Click to select PDFs or drag & drop</span>
+          </label>
+          <input type="file" id="mergeFiles" class="file-input" multiple accept=".pdf">
+        </div>
+        <div id="mergeFileList" class="file-list" style="display: none;"></div>
+      </div>
+
+      <button type="submit" class="submit-btn">Merge PDFs</button>
+    </form>
+
+    <div id="mergeStatus" style="display: none;"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2025 PDF Master. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

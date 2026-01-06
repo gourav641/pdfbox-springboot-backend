@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lock PDF - PDF Master</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">📄 Docuflow</div>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="create.html">Create</a></li>
+      <li><a href="compress.html">Compress</a></li>
+      <li><a href="merge.html">Merge</a></li>
+      <li><a href="remove.html">Remove Pages</a></li>
+      <li><a href="lock.html" class="active">Lock PDF</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="operation-page">
+    <h1 class="page-title">🔒 Lock PDF</h1>
+    <p class="page-description">Protect your PDF with password and permissions</p>
+
+    <form id="lockForm" class="upload-form">
+      <div class="form-group">
+        <label>Select PDF File</label>
+        <div class="file-input-wrapper">
+          <label class="file-input-label" for="lockFile">
+            <span>📄 Click to select PDF or drag & drop</span>
+          </label>
+          <input type="file" id="lockFile" class="file-input" accept=".pdf">
+        </div>
+        <div id="lockFileList" class="file-list" style="display: none;"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="ownerPassword">Owner Password</label>
+        <input
+                type="password"
+                id="ownerPassword"
+                class="input-field"
+                placeholder="Enter owner password"
+                required>
+        <small style="color: #666;">Required for full access and modifications</small>
+      </div>
+
+      <div class="form-group">
+        <label for="userPassword">User Password</label>
+        <input
+                type="password"
+                id="userPassword"
+                class="input-field"
+                placeholder="Enter user password"
+                required>
+        <small style="color: #666;">Required to open and view the PDF</small>
+      </div>
+
+      <div class="form-group">
+        <label>Permissions</label>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="allowContentExtraction" name="allowContentExtraction">
+          <label for="allowContentExtraction" style="font-weight: normal;">Allow Content Extraction (Copy text, images)</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="allowPrinting" name="allowPrinting" checked>
+          <label for="allowPrinting" style="font-weight: normal;">Allow Printing (Default: Enabled)</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Lock PDF</button>
+    </form>
+
+    <div id="lockStatus" style="display: none;"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2025 PDF Master. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

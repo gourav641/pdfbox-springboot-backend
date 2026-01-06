@@ -1,8 +1,8 @@
 package com.DocuFlow.DocuFlow.Controller;
 
-import com.DocuFlow.DocuFlow.Entity.Entity;
+
 import com.DocuFlow.DocuFlow.Service.DocuFlowService;
-import org.bson.types.ObjectId;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class FileController {
     @Autowired
     private DocuFlowService docuFlowService;
 
-    @PostMapping
+    @PostMapping("/create")
     private ResponseEntity<?> createpdfFiles(@RequestParam("files") List<MultipartFile> files) throws IOException {
         try {
             byte[] pdfBytes = docuFlowService.createpdf(files);
@@ -70,6 +70,25 @@ public class FileController {
         }  catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error: " + e.getMessage());
+        }
+    }
+    @PostMapping("protect")
+    public ResponseEntity<?> lockpdf(@RequestParam("file") MultipartFile file,
+                                     @RequestParam("ownerPassword") String ownPass,
+                                     @RequestParam("userPassword") String userPass,
+                                     @RequestParam("allowPrinting") boolean permision,
+                                     @RequestParam("allowContentExtraction") boolean permison
+                                     )  {
+        try{
+        byte[] lockedpdf =docuFlowService.protectPdf(file.getInputStream(),ownPass,userPass,permision,permison);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"document.pdf\"")
+
+                .body(lockedpdf);}
+        catch (IOException e) {
+            return ResponseEntity.badRequest()
+            .body(null);
+
         }
     }
 }
